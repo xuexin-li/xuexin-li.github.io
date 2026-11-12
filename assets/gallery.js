@@ -5,6 +5,12 @@ const closePhoto = photoDialog.querySelector(".close-photo");
 const viewTitle = document.querySelector("#view-title");
 const viewPlace = document.querySelector("#view-place");
 
+const photoPage = document.querySelector(".photo-page");
+
+photoPage.addEventListener("contextmenu", (event) => {
+  if (event.target.closest("img, .photo-grid figure > a")) event.preventDefault();
+});
+
 photoGrid.addEventListener("click", (event) => {
   const link = event.target.closest("figure > a");
   if (!link || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
